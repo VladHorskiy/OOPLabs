@@ -7,7 +7,7 @@ public class Main {
         fillApartments();
         printApartmentsByNumberOfRooms(2);
         printApartmentsByFloorAndRooms(2, 1, 5);
-        printApartmentsByArea(70);
+        printApartmentsByArea(70.0);
     }
 
     private static void fillApartments() {
@@ -18,27 +18,27 @@ public class Main {
         apartments[4] = new Apartment(5, 505, 55.8, 5, 1, "Сонячна");
     }
 
-    private static void printApartmentsByNumberOfRooms(int numberOfRooms) {
+    private static void printApartmentsByNumberOfRooms(Integer numberOfRooms) {
         System.out.println("Квартири з " + numberOfRooms + " кімнатами:");
         for (Apartment apartment : apartments) {
-            if (apartment.getNumberOfRooms() == numberOfRooms) {
+            if (apartment.getNumberOfRooms().equals(numberOfRooms)) {
                 System.out.println(apartment);
             }
         }
         System.out.println();
     }
 
-    private static void printApartmentsByFloorAndRooms(int numberOfRooms, int minFloor, int maxFloor) {
+    private static void printApartmentsByFloorAndRooms(Integer numberOfRooms, Integer minFloor, Integer maxFloor) {
         System.out.println("Квартири з " + numberOfRooms + " кімнатами на поверсі від " + minFloor + " до " + maxFloor + ":");
         for (Apartment apartment : apartments) {
-            if (apartment.getNumberOfRooms() == numberOfRooms && apartment.getFloor() >= minFloor && apartment.getFloor() <= maxFloor) {
+            if (apartment.getNumberOfRooms().equals(numberOfRooms) && apartment.getFloor() >= minFloor && apartment.getFloor() <= maxFloor) {
                 System.out.println(apartment);
             }
         }
         System.out.println();
     }
 
-    private static void printApartmentsByArea(double minArea) {
+    private static void printApartmentsByArea(Double minArea) {
         System.out.println("Квартири з площею більше " + minArea + " м^2:");
         for (Apartment apartment : apartments) {
             if (apartment.getArea() > minArea) {

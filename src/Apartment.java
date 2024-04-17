@@ -1,12 +1,12 @@
 public class Apartment {
-    private int id;
-    private int apartmentNumber;
-    private double area;
-    private int floor;
-    private int numberOfRooms;
+    private Integer id;
+    private Integer apartmentNumber;
+    private Double area;
+    private Integer floor;
+    private Integer numberOfRooms;
     private String street;
 
-    public Apartment(int id, int apartmentNumber, double area, int floor, int numberOfRooms, String street) {
+    public Apartment(Integer id, Integer apartmentNumber, Double area, Integer floor, Integer numberOfRooms, String street) {
         this.id = id;
         this.apartmentNumber = apartmentNumber;
         this.area = area;
@@ -15,43 +15,43 @@ public class Apartment {
         this.street = street;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getApartmentNumber() {
+    public Integer getApartmentNumber() {
         return apartmentNumber;
     }
 
-    public void setApartmentNumber(int apartmentNumber) {
+    public void setApartmentNumber(Integer apartmentNumber) {
         this.apartmentNumber = apartmentNumber;
     }
 
-    public double getArea() {
+    public Double getArea() {
         return area;
     }
 
-    public void setArea(double area) {
+    public void setArea(Double area) {
         this.area = area;
     }
 
-    public int getFloor() {
+    public Integer getFloor() {
         return floor;
     }
 
-    public void setFloor(int floor) {
+    public void setFloor(Integer floor) {
         this.floor = floor;
     }
 
-    public int getNumberOfRooms() {
+    public Integer getNumberOfRooms() {
         return numberOfRooms;
     }
 
-    public void setNumberOfRooms(int numberOfRooms) {
+    public void setNumberOfRooms(Integer numberOfRooms) {
         this.numberOfRooms = numberOfRooms;
     }
 
