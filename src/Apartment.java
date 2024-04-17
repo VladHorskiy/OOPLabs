@@ -1,13 +1,15 @@
-public class Apartment {
-    private int id;
-    private int apartmentNumber;
-    private double area;
-    private int floor;
-    private int numberOfRooms;
+class Apartment extends Base implements Comparable<Apartment> {
+    private Integer apartmentNumber;
+    private Double area;
+    private Integer floor;
+    private Integer numberOfRooms;
     private String street;
 
-    public Apartment(int id, int apartmentNumber, double area, int floor, int numberOfRooms, String street) {
-        this.id = id;
+    public Apartment() {
+        super();
+    }
+
+    public Apartment(Integer id, Integer apartmentNumber, Double area, Integer floor, Integer numberOfRooms, String street) {
         this.apartmentNumber = apartmentNumber;
         this.area = area;
         this.floor = floor;
@@ -15,43 +17,59 @@ public class Apartment {
         this.street = street;
     }
 
-    public int getId() {
-        return id;
+    public Apartment(Integer apartmentNumber, Double area, Integer floor, Integer numberOfRooms, String street) {
+        this.apartmentNumber = apartmentNumber;
+        this.area = area;
+        this.floor = floor;
+        this.numberOfRooms = numberOfRooms;
+        this.street = street;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Apartment(Integer apartmentNumber, Double area, Integer floor, Integer numberOfRooms) {
+        this.apartmentNumber = apartmentNumber;
+        this.area = area;
+        this.floor = floor;
+        this.numberOfRooms = numberOfRooms;
+        this.street = "Невідома";
     }
 
-    public int getApartmentNumber() {
+    public Apartment(Apartment other) {
+        this.apartmentNumber = other.apartmentNumber;
+        this.area = other.area;
+        this.floor = other.floor;
+        this.numberOfRooms = other.numberOfRooms;
+        this.street = other.street;
+    }
+
+    public Integer getApartmentNumber() {
         return apartmentNumber;
     }
 
-    public void setApartmentNumber(int apartmentNumber) {
+    public void setApartmentNumber(Integer apartmentNumber) {
         this.apartmentNumber = apartmentNumber;
     }
 
-    public double getArea() {
+    public Double getArea() {
         return area;
     }
 
-    public void setArea(double area) {
+    public void setArea(Double area) {
         this.area = area;
     }
 
-    public int getFloor() {
+    public Integer getFloor() {
         return floor;
     }
 
-    public void setFloor(int floor) {
+    public void setFloor(Integer floor) {
         this.floor = floor;
     }
 
-    public int getNumberOfRooms() {
+    public Integer getNumberOfRooms() {
         return numberOfRooms;
     }
 
-    public void setNumberOfRooms(int numberOfRooms) {
+    public void setNumberOfRooms(Integer numberOfRooms) {
         this.numberOfRooms = numberOfRooms;
     }
 
@@ -66,12 +84,16 @@ public class Apartment {
     @Override
     public String toString() {
         return "Квартира{" +
-                "id=" + id +
-                ", номер квартири=" + apartmentNumber +
+                "номер квартири=" + apartmentNumber +
                 ", площа=" + area +
                 ", поверх=" + floor +
                 ", кількість кімнат=" + numberOfRooms +
                 ", вулиця='" + street + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Apartment other) {
+        return this.apartmentNumber.compareTo(other.apartmentNumber);
     }
 }
