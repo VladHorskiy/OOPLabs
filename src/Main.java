@@ -1,50 +1,29 @@
-import java.util.Locale;
+import java.util.Scanner;
 
 public class Main {
-    private static Apartment[] apartments = new Apartment[5];
-
     public static void main(String[] args) {
-        fillApartments();
-        printApartmentsByNumberOfRooms(2);
-        printApartmentsByFloorAndRooms(2, 1, 5);
-        printApartmentsByArea(70);
-    }
+        HotelRoom[] hotelRooms = new HotelRoom[4];
+        Scanner scanner = new Scanner(System.in);
 
-    private static void fillApartments() {
-        apartments[0] = new Apartment(1, 101, 60.5, 1, 2, "Слов'янська");
-        apartments[1] = new Apartment(2, 202, 75.2, 2, 3, "Зелена");
-        apartments[2] = new Apartment(3, 303, 80.0, 3, 2, "Шевченка");
-        apartments[3] = new Apartment(4, 404, 90.3, 4, 4, "Привітна");
-        apartments[4] = new Apartment(5, 505, 55.8, 5, 1, "Сонячна");
-    }
+        for (int i = 0; i < hotelRooms.length; i++) {
+            System.out.print("Введіть номер кімнати:");
+            int roomNumber = scanner.nextInt();
 
-    private static void printApartmentsByNumberOfRooms(int numberOfRooms) {
-        System.out.println("Квартири з " + numberOfRooms + " кімнатами:");
-        for (Apartment apartment : apartments) {
-            if (apartment.getNumberOfRooms() == numberOfRooms) {
-                System.out.println(apartment);
-            }
+            System.out.print("Введіть поверх:");
+            int floor = scanner.nextInt();
+
+            System.out.print("Введіть кількість кімнат:");
+            int numberOfRooms = scanner.nextInt();
+            scanner.nextLine();
+
+            System.out.print("Введіть вулицю:");
+            String street = scanner.nextLine();
+
+            hotelRooms[i] = new HotelRoom(roomNumber, floor, numberOfRooms, street);
         }
-        System.out.println();
-    }
 
-    private static void printApartmentsByFloorAndRooms(int numberOfRooms, int minFloor, int maxFloor) {
-        System.out.println("Квартири з " + numberOfRooms + " кімнатами на поверсі від " + minFloor + " до " + maxFloor + ":");
-        for (Apartment apartment : apartments) {
-            if (apartment.getNumberOfRooms() == numberOfRooms && apartment.getFloor() >= minFloor && apartment.getFloor() <= maxFloor) {
-                System.out.println(apartment);
-            }
+        for (HotelRoom room : hotelRooms) {
+            System.out.println(room);
         }
-        System.out.println();
-    }
-
-    private static void printApartmentsByArea(double minArea) {
-        System.out.println("Квартири з площею більше " + minArea + " м^2:");
-        for (Apartment apartment : apartments) {
-            if (apartment.getArea() > minArea) {
-                System.out.println(apartment);
-            }
-        }
-        System.out.println();
     }
 }
